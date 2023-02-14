@@ -21,19 +21,15 @@ export default class App extends Component {
   createState = () => {
     const cols = params.getColumnsAmount();
     const rows = params.getRowsAmount();
-    // return {
-    //   board: createMineBoard(rows, cols, this.minesAmount()),
-    // };
+    return {
+      board: createMineBoard(rows, cols, this.minesAmount()),
+    };
   };
 
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.welcome}>Iniciando o mines!</Text>
-        <Text style={styles.welcome}>
-          Tamanho da Grade: {params.getRowsAmount()} x{' '}
-          {params.getColumnsAmount()}
-        </Text>
+        <MineField style={styles.board} board={this.state.board} />
       </SafeAreaView>
     );
   }
@@ -42,11 +38,11 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  welcome: {
-    fontSize: 24,
-    fontWeight: '600',
+  board: {
+    backgroundColor: '#AAA',
+    alignItems: 'center',
   },
 });
