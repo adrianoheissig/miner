@@ -33,7 +33,6 @@ const spreadMines = (board, minesAmount) => {
 };
 
 const createMineBoard = (rows, columns, minesAmount) => {
-  console.debug('aqui');
   const board = createBoard(rows, columns);
   spreadMines(board, minesAmount);
   return board;
@@ -61,13 +60,14 @@ const getNeighbors = (board, row, column) => {
         neighbors.push(board[r][c]);
       }
     });
-    return neighbors;
   });
+  return neighbors;
 };
 
 const safeNeighborhood = (board, row, column) => {
   const safes = (result, neighbor) => result && !neighbor.mined;
-  return getNeighbors(board, row, column).reduce(safes, true);
+  const neighbors = getNeighbors(board, row, column);
+  return neighbors.reduce(safes, true);
 };
 
 const openField = (board, row, column) => {
