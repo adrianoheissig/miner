@@ -80,15 +80,24 @@ export default class App extends Component {
     this.newGame();
   };
 
+  toggleLevelSelection = () => {
+    const showLevelSelection = this.state.showLevelSelection;
+    this.setState({showLevelSelection: !showLevelSelection});
+  };
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <LevelSelection
           isVisible={this.state.showLevelSelection}
           onLevelSelected={this.levelSelected}
-          // onCancel={this.setState({showLevelSelection: false})}
+          onCancel={this.toggleLevelSelection}
         />
-        <Header flagsLeft={this.flagsLeft()} onNewGame={this.newGame} />
+        <Header
+          flagsLeft={this.flagsLeft()}
+          onNewGame={this.newGame}
+          onFlagPress={this.toggleLevelSelection}
+        />
         <MineField
           style={styles.board}
           board={this.state.board}

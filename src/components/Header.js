@@ -8,7 +8,9 @@ export default props => {
   return (
     <View style={styles.container}>
       <View style={styles.flagContainer}>
-        <TouchableOpacity style={styles.flagButton} onPress={props.onFlagPress}>
+        <TouchableOpacity
+          style={styles.flagButton}
+          onPress={() => props.onFlagPress()}>
           <Flag bigger />
         </TouchableOpacity>
         <Text style={styles.flagsLeft}>{props.flagsLeft}</Text>

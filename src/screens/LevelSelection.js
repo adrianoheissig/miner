@@ -14,17 +14,17 @@ export default props => {
           <Text style={styles.title}>Selecione o Nível</Text>
           <TouchableOpacity
             style={[styles.button, styles.bgEasy]}
-            onPress={() => props.onLevelSelect(0.1)}>
+            onPress={() => props.onLevelSelected(0.1)}>
             <Text style={styles.buttonLabel}>Fácil</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.button, styles.bgMedium]}
-            onPress={() => props.onLevelSelect(0.2)}>
+            onPress={() => props.onLevelSelected(0.2)}>
             <Text style={styles.buttonLabel}>Médio</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.button, styles.bgHard]}
-            onPress={() => props.onLevelSelect(0.3)}>
+            onPress={() => props.onLevelSelected(0.3)}>
             <Text style={styles.buttonLabel}>Difícil</Text>
           </TouchableOpacity>
         </View>
